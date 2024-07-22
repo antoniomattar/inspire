@@ -1,10 +1,18 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import Image from "next/image";
+import { useState } from "react";
 
 export function SignIn() {
+  const [passwordVisible, setPasswordVisible] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setPasswordVisible(!passwordVisible);
+  };
+
   return (
     <div className="flex min-h-screen">
       <div className="flex-1 bg-gradient-to-b from-[#6a11cb] to-[#2575fc] flex flex-col justify-center items-center p-8 text-white">
@@ -27,12 +35,7 @@ export function SignIn() {
         </p>
       </div>
       <div className="flex-1 flex flex-col justify-center items-center p-8">
-        <Image
-          src="/logo.png"
-          alt="Logo"
-          width={200}
-          height={100}
-        />
+        <Image src="/logo.png" alt="Logo" width={200} height={100} />
         <div className="flex space-x-4 mb-8">
           <Button variant="outline" className="flex items-center space-x-2">
             <UserIcon className="w-4 h-4" />
@@ -67,10 +70,13 @@ export function SignIn() {
               <Input
                 id="password"
                 placeholder="*************"
-                type="password"
+                type={passwordVisible ? "text" : "password"}
                 defaultValue="*************"
               />
-              <EyeIcon className="absolute right-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+              <EyeIcon
+                className="absolute right-2.5 top-2.5 h-4 w-4 text-muted-foreground cursor-pointer"
+                onClick={togglePasswordVisibility}
+              />
             </div>
           </div>
           <div className="flex items-center space-x-2">
