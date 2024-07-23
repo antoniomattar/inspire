@@ -18,7 +18,7 @@ export function SignIn() {
       <div className="flex-1 bg-gradient-to-b from-[#6a11cb] to-[#2575fc] flex flex-col justify-center items-center p-8 text-white">
         <div className="w-[300px] h-[300px] overflow-hidden mb-8">
           <Image
-            src="/hero-sign-in.png"
+            src="/assets/hero-sign-in.png"
             alt="Illustration"
             className="w-full h-full"
             width={300}
@@ -35,7 +35,7 @@ export function SignIn() {
         </p>
       </div>
       <div className="flex-1 flex flex-col justify-center items-center p-8">
-        <Image src="/logo.png" alt="Logo" width={200} height={100} />
+        <Image src="/assets/logo.png" alt="Logo" width={200} height={100} />
         <div className="flex space-x-4 mb-8">
           <Button variant="outline" className="flex items-center space-x-2">
             <UserIcon className="w-4 h-4" />

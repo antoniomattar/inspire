@@ -1,4 +1,5 @@
 import Explore from "@/components/explore";
+import Inbox from "@/components/inbox";
 import { SignIn } from "@/components/sign-in";
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
     <div>
       <SignIn />
       <Explore />
+      <Inbox />
     </div>
   );
 }
