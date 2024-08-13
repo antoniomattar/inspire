@@ -7,19 +7,19 @@ import CountrySelect from "./CountryDropdown";
 import Image from "next/image";
 import { useState } from "react";
 
-export function SignIn() {
+export function SignUp() {
   const [passwordVisible, setPasswordVisible] = useState(false);
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
 
-  const [selectedCountry, setSelectedCountry] = useState<string>('');
+  const [selectedCountry, setSelectedCountry] = useState<string>("");
 
   const handleCountryChange = (countryCode: string) => {
     setSelectedCountry(countryCode);
-    console.log('Selected country:', countryCode);
-};
+    console.log("Selected country:", countryCode);
+  };
 
   return (
     <div className="flex min-h-screen">
@@ -44,16 +44,7 @@ export function SignIn() {
       </div>
       <div className="flex-1 flex flex-col justify-center items-center p-8">
         <Image src="/assets/logo.png" alt="Logo" width={200} height={100} />
-        <div className="flex space-x-4 mb-8">
-          <Button variant="outline" className="flex items-center space-x-2">
-            <UserIcon className="w-4 h-4" />
-            <span>Register as Mentor</span>
-          </Button>
-          <Button variant="outline" className="flex items-center space-x-2">
-            <GraduationCapIcon className="w-4 h-4" />
-            <span>Register as Mentee</span>
-          </Button>
-        </div>
+
         <div className="space-y-4 w-full max-w-md">
           <div className="space-y-2">
             <Label htmlFor="username">Username</Label>
@@ -61,6 +52,47 @@ export function SignIn() {
               id="username"
               placeholder="jack_challita"
               defaultValue="jack_challita"
+            />
+          </div>
+          <div className="flex space-x-4 mb-8">
+            {/* Mentor Option */}
+            <input
+              type="radio"
+              id="mentor"
+              name="role"
+              value="mentor"
+              defaultChecked
+              className="radio-button"
+            />
+            <Label
+              htmlFor="mentor"
+              className="text-sm font-medium leading-none"
+            >
+              Register as Mentor
+            </Label>
+
+            {/* Mentee Option */}
+            <input
+              type="radio"
+              id="mentee"
+              name="role"
+              value="mentee"
+              className="radio-button"
+            />
+            <Label
+              htmlFor="mentee"
+              className="text-sm font-medium leading-none"
+            >
+              Register as Mentee
+            </Label>
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="email">Email</Label>
+            <Input
+              id="email"
+              placeholder="jackchallita@email.com"
+              defaultValue="jackchallita@email.com"
+              type="email"
             />
           </div>
           <div className="space-y-2">
@@ -78,10 +110,35 @@ export function SignIn() {
               />
             </div>
           </div>
+          <div className="space-y-2">
+            <Label htmlFor="age">Age</Label>
+            <Input id="age" placeholder="25" defaultValue="25" type="number" />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="location">Location</Label>
+            <br />
+            <CountrySelect
+              value={selectedCountry}
+              onChange={handleCountryChange}
+            />
+            {selectedCountry && <p>You have selected: {selectedCountry}</p>}
+          </div>
+          <div className="flex items-center space-x-2">
+            <Checkbox id="terms" defaultChecked />
+            <Label htmlFor="terms" className="text-sm font-medium leading-none">
+              I accept the terms & conditions
+            </Label>
+          </div>
           <Button className="w-full bg-purple-500 hover:bg-purple-600 text-white">
-            SIGN IN
+            SIGN UP
           </Button>
         </div>
+        <p className="mt-8 text-sm text-muted-foreground">
+          Own an Account?{" "}
+          <a href="#" className="font-bold text-black">
+            JUMP RIGHT IN
+          </a>
+        </p>
       </div>
     </div>
   );
