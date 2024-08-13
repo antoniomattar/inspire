@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
+import CountrySelect from "./CountryDropdown";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -12,6 +13,13 @@ export function SignIn() {
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
+
+  const [selectedCountry, setSelectedCountry] = useState<string>('');
+
+  const handleCountryChange = (countryCode: string) => {
+    setSelectedCountry(countryCode);
+    console.log('Selected country:', countryCode);
+};
 
   return (
     <div className="flex min-h-screen">
@@ -78,6 +86,16 @@ export function SignIn() {
                 onClick={togglePasswordVisibility}
               />
             </div>
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="age">Age</Label>
+            <Input id="age" placeholder="25" defaultValue="25" type="number" />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="location">Location</Label>
+            <br/>
+            <CountrySelect value={selectedCountry} onChange={handleCountryChange} />
+            {selectedCountry && <p>You have selected: {selectedCountry}</p>}
           </div>
           <div className="flex items-center space-x-2">
             <Checkbox id="terms" defaultChecked />

@@ -10,30 +10,30 @@ export default function Explore() {
   const interests: Interest[] = [
     {
       label: "FITNESS",
-      img: "/placeholder.svg?height=80&width=80",
+      img: "/assets/interests/fitness.avif",
       selected: true,
     },
     {
       label: "DESIGN",
-      img: "/placeholder.svg?height=80&width=80",
+      img: "/assets/interests/design.jpeg",
       selected: true,
     },
     {
       label: "EDUCATION",
-      img: "/placeholder.svg?height=80&width=80",
+      img: "/assets/interests/education.jpeg",
       selected: true,
     },
-    { label: "DIY CRAFTS", img: "/placeholder.svg?height=80&width=80" },
-    { label: "HOME", img: "/placeholder.svg?height=80&width=80" },
-    { label: "FOOD&DRINK", img: "/placeholder.svg?height=80&width=80" },
-    { label: "HAIR&BEAUTY", img: "/placeholder.svg?height=80&width=80" },
-    { label: "GARDENING", img: "/placeholder.svg?height=80&width=80" },
+    { label: "DIY CRAFTS", img: "/assets/interests/diy.png" },
+    { label: "HOME", img: "/assets/interests/home.avif" },
+    { label: "FOOD&DRINK", img: "/assets/interests/food.avif" },
+    { label: "HAIR&BEAUTY", img: "/assets/interests/hair-and-beauty.jpeg" },
+    { label: "GARDENING", img: "/assets/interests/gardening.webp" },
     {
       label: "CARS",
-      img: "/placeholder.svg?height=80&width=80",
+      img: "/assets/interests/cars.webp",
       selected: true,
     },
-    { label: "TRAVEL", img: "/placeholder.svg?height=80&width=80" },
+    { label: "TRAVEL", img: "/assets/interests/travel.png" },
   ];
 
   return (
